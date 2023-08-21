@@ -29,7 +29,7 @@ class LeadController extends Controller
         }
         $formRecord->unread = true;
         $formRecord->save();
-        Mail::to('info@albus-it.ru')->send(new ContactForm($formRecord));
+        Mail::to('ca@filnext.ru')->send(new ContactForm($formRecord));
 
 
         return true;

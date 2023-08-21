@@ -11,7 +11,7 @@
                     <li>
                         <span href="" class="flex items-center">
                             <x-heroicon-s-map-pin class="w-6 h-6"/>
-                            <span class="ml-2">344038, г. Ростов-на-Дону, ул. Нансена, д. 103/1, офис 1</span>
+                            <span class="ml-2">344038, Ростовская область, г. Ростов-На-Дону, ул Нансена, здание 103М, помещение 5</span>
                         </span>
                     </li>
                     <li>

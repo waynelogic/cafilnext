@@ -6,7 +6,6 @@ class Accordion {
     }
     init() {
         let buttons = this.element.querySelectorAll('[data-target]');
-        console.log(buttons)
         buttons.forEach(button => {
             let target = button.dataset.target;
             let content = document.querySelector(button.dataset.target);
@@ -25,10 +24,8 @@ class Accordion {
                 }
             });
         });
-        console.log(this.items)
     }
     toggleItem(item, state) {
-        console.log(state);
         item.isOpen = state;
         item.button.classList.toggle('active', state);
         item.content.classList.toggle('open', state);

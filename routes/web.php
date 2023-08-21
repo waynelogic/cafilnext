@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Helpers\Page;
 use App\Http\Controllers\LeadController;
+use Spatie\Sitemap\SitemapGenerator;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,12 @@ Route::get('/', function () {
 
     return view('home',  ['page' => $page]);
 })->name('home');
+
+Route::get('generate-sitemap', function () {
+    SitemapGenerator::create('https://cafilnext.ru/')
+        ->writeToFile(public_path('sitemap.xml'));
+});
+
 
 Route::get('/mail', function () {
     $lead = \App\Models\FormRecord::find(4);

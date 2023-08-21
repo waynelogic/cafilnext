@@ -22,6 +22,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Styles -->
     @vite('resources/css/app.css')
+
+    @include('common.yandex')
 </head>
 
 <body>

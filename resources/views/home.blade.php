@@ -6,7 +6,7 @@
         <img class="absolute w-full h-full object-cover object-center z-[-2]" src="images/home/hero2.webp">
         <div class="absolute bg-black/60 inset-0 z-[-1]"></div>
             <div class="container flex justify-end py-20">
-                <div class="w-1/2">
+                <div class="lg:w-1/2">
                     <div class="border-l boder-[#ffffff33] relative after:absolute after:h-1/2 after:bottom-0 after:left-0 after:-translate-x-[1px] after:w-[3px] after:bg-primary ">
                         <h2 class="text-white text-5xl font-semibold font-serif px-6 py-4">Коллекторское Агентство<br>"ФиЛнекст"</h2>
                     </div>
@@ -32,7 +32,7 @@
 
     <section class="offer">
         <div class="container">
-            <div class="grid grid-cols-3 gap-10 pb-10">
+            <div class="grid lg:grid-cols-3 gap-10 pb-10">
                 <div class="shadow-out relative">
                     <h2 class="absolute w-full py-3 bg-primary text-white text-center text-3xl font-serif font-semibold bottom-full rounded-t-xl">Обратная связь</h2>
                     <form class="grid grid-cols-1 gap-6 p-8" method="POST" data-request="{{ route('contactForm') }}">
@@ -44,8 +44,8 @@
                         <button type="submit" data-attach-loading="" class="mt-2 btn btn-primary">Отправить</button>
                     </form>
                 </div>
-                <div class="col-span-2 flex items-center justify-center">
-                    <div class="grid grid-cols-2 gap-10">
+                <div class="lg:col-span-2 flex items-center justify-center">
+                    <div class="grid lg:grid-cols-2 gap-10">
                         @foreach($arActions as $obAction)
                             <div class="flex" data-aos-delay="{{ $loop->iteration * 100 }}" data-aos="fade-up">
                                 <div class="shrink-0 self-start bg-primary-200 rounded-full p-4 mr-4">
@@ -223,9 +223,9 @@
             <header class="mb-8  text-white">
                 <h2 class="text-4xl font-serif">Контакты</h2>
             </header>
-            <div class="grid grid-cols-2 gap-20">
+            <div class="grid lg:grid-cols-2 gap-20">
                 <div>
-                    <div class="bg-[#f6f4ed] rounded-lg overflow-hidden p-8">
+                    <div class="bg-[#f6f4ed] rounded-lg overflow-hidden p-4 lg:p-8">
                         <h3 class="text-3xl font-serif font-medium mb-4">Обратная связь</h3>
 
                         <form class="lead-form grid grid-cols-1 gap-4" method="POST" data-request="{{ route('contactForm') }}">
@@ -240,7 +240,7 @@
                 </div>
                 <div>
                     <div class="bg-[#f6f4ed] rounded-lg overflow-hidden">
-                        <div class="p-8">
+                        <div class="p-4 lg:p-8">
                             <h3 class="text-3xl font-serif font-medium mb-4">Реквизиты</h3>
                             <table class="requisites table-auto">
                                 <tbody>
@@ -258,12 +258,12 @@
                         <div class="grid grid-cols-2 text-primary-900 border-t border-slate-300">
                             <button class="flex items-center justify-center py-4 transition-all hover:bg-primary hover:text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <x-heroicon-o-clipboard-document-list class="w-8 h-8 shrink-0"/>
-                                <span class="text-xl ml-4">Посмотреть все</span>
+                                <span class="text-sm lg:text-xl ml-4">Посмотреть все</span>
                             </button>
 
                             <button class="flex items-center justify-center py-4 transition-all hover:bg-primary hover:text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <x-heroicon-o-qr-code class="w-8 h-8 shrink-0"/>
-                                <span class="text-xl ml-4">Оплата по QR коду</span>
+                                <span class="text-sm lg:text-xl ml-4">Оплата по QR коду</span>
                             </button>
                         </div>
                     </div>

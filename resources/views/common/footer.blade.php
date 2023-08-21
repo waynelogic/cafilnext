@@ -1,8 +1,8 @@
 <footer class="p-3 bg-neutral-800 text-white">
     <div class="container py-12">
-        <div class="grid grid-cols-2 gap-10">
+        <div class="grid lg:grid-cols-2 gap-20">
             <div>
-                <img src="images/home/filnext_logo_white.svg" alt="ФиЛнекст" width="100%" class="mb-0">
+                <img src="images/home/fl_logo.svg" alt="ФиЛнекст" width="100%" class="mb-0">
                 <p class="mt-4">Юридическая компания «ФиЛнекст» специализируется на работе с долговыми обязательствами по всей России.</p>
             </div>
             <div>
@@ -21,9 +21,9 @@
                         </a>
                     </li>
                     <li>
-                        <a href="mailto:info@cafilnext.ru" class="flex items-center">
+                        <a href="mailto:ca@filnext.ru" class="flex items-center">
                             <x-heroicon-s-envelope class="w-6 h-6"/>
-                            <span class="ml-2">info@cafilnext.ru</span>
+                            <span class="ml-2">ca@filnext.ru</span>
                         </a>
                     </li>
                 </ul>

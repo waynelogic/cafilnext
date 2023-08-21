@@ -5,6 +5,9 @@
 @tailwind utilities;
 
 @layer base {
+    button * {
+        @apply pointer-events-none;
+    }
     .container {
         @apply mx-auto;
     }
@@ -40,5 +43,13 @@
     }
     .requisites tr {
         @apply border-b border-slate-300 last:border-b-0
+    }
+
+
+    .site-navbar {
+        @apply max-lg:invisible max-lg:opacity-0 max-lg:max-h-0;
+    }
+    .site-navbar.open {
+        @apply max-lg:visible max-lg:opacity-100 max-lg:max-h-max;
     }
 }

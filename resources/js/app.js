@@ -14,10 +14,7 @@ window.accordion = function(object){
 }
 
 window.onload = () => {
-    const cloak = document.querySelectorAll('[x-cloak]');
-    cloak.forEach(element => {
-        element.removeAttribute('x-cloak');
-    });
+    import('./components//header.js').then(({ default : init }) => init() );
     const arLazyItems = document.querySelectorAll('[data-lazy]');
     arLazyItems.forEach(element => {
         var fnName = element.dataset.lazy;

@@ -35,9 +35,11 @@
             <div class="grid grid-cols-3 gap-10 pb-10">
                 <div class="shadow-out relative">
                     <h2 class="absolute w-full py-3 bg-primary text-white text-center text-3xl font-serif font-semibold bottom-full rounded-t-xl">Обратная связь</h2>
-                    <form class="grid grid-cols-1 gap-6 p-8">
-                        <input type="text" name="Имя" placeholder="Имя" class="w-full form-control">
-                        <input type="tel" name="Телефон" placeholder="Телефон" class="w-full form-control">
+                    <form class="grid grid-cols-1 gap-6 p-8" method="POST" data-request="{{ route('contactForm') }}">
+                        @csrf
+                        <input type="hidden" name="group" value="Быстрая связь">
+                        <input type="text" name="Имя" placeholder="Имя" required class="w-full form-control">
+                        <input type="tel" name="Телефон" placeholder="Телефон" required class="w-full form-control">
                         <textarea name="Сообщение" placeholder="Сообщение" class="w-full form-control" rows="3"></textarea>
                         <button type="submit" data-attach-loading="" class="mt-2 btn btn-primary">Отправить</button>
                     </form>
@@ -226,9 +228,11 @@
                     <div class="bg-[#f6f4ed] rounded-lg overflow-hidden p-8">
                         <h3 class="text-3xl font-serif font-medium mb-4">Обратная связь</h3>
 
-                        <form class="grid grid-cols-1 gap-4">
-                            <input type="text" name="Имя" placeholder="Имя" class="w-full form-control">
-                            <input type="tel" name="Телефон" placeholder="Телефон" class="w-full form-control">
+                        <form class="lead-form grid grid-cols-1 gap-4" method="POST" data-request="{{ route('contactForm') }}">
+                            @csrf
+                            <input type="hidden" name="group" value="Контакты">
+                            <input type="text" name="Имя" placeholder="Имя" required class="w-full form-control">
+                            <input type="tel" name="Телефон" placeholder="Телефон" required class="w-full form-control">
                             <textarea name="Сообщение" placeholder="Сообщение" class="w-full form-control" rows="3"></textarea>
                             <button type="submit" data-attach-loading="" class="mt-2 btn btn-primary">Отправить</button>
                         </form>

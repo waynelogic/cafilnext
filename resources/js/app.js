@@ -1,7 +1,13 @@
 import './bootstrap';
 import AOS from 'aos';
-
 AOS.init();
+
+import ajax from "./components/request/request.js";
+window.Request = Request;
+
+document.querySelectorAll('[data-request]').forEach(element => {
+    ajax.form(element);
+});
 
 window.accordion = function(object){
     import('./components/accordion').then(({ default : init }) => init(object) );

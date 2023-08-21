@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('group')->nullable();
             $table->text('form_data')->nullable();
             $table->string('ip')->nullable();
+            $table->string('city')->nullable();
             $table->boolean('unread')->default(1);
         });
     }

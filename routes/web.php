@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Helpers\Page;
+use App\Http\Controllers\LeadController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,5 +15,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    $page = new Page();
+    $page->description('Юридическая компания «ФиЛнекст» специализируется на работе с долговыми обязательствами по всей России.');
+    $page->keywords('ФиЛнекст, ФиЛнекст Ростов-на-Дону, ФиЛнекст Россиия, юридическая компания');
+    $page->cover('images/home/hero2.webp');
+
+    return view('home',  ['page' => $page]);
+})->name('home');
+
+
+
+Route::prefix('api')->group(function () {
+    Route::post('/contactForm',[LeadController::class,'contactForm'])->name('contactForm');
 });

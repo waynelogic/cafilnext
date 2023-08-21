@@ -1,9 +1,9 @@
 <div class="p-3 bg-neutral-800 text-white">
     <div class="container">
         <div class="grid md:grid-cols-12 gap-6">
-            <div class="md:col-span-3 lg:col-span-2 md:order-2">
+            <div class="md:col-span-3 lg:col-span-2 md:order-2 flex items-center">
                 <a class="info_line_brand" href="/">
-                    <img src="images/home/filnext_logo_white.svg" alt="ФиЛнекст" width="100%" class="mb-0">
+                    <img src="images/home/filnext_logo_white.svg" alt="ФиЛнекст" width="100%" class="mb-0 max-w-xs mx-auto">
                 </a>
             </div>
             <div class="md:col-span-4 lg:col-span-5 md:text-end flex items-center md:justify-end md:order-1">
@@ -59,11 +59,11 @@
 <header class="bg-white shadow-md top-0 sticky z-50">
     <div class="container max-lg:justify-between flex flex-wrap items-center py-3">
         <div class="lg:hidden max-lg:order-1 text-xl font-serif font-semibold">Меню</div>
-        <nav class="max-lg:w-full bg-white inset-0 max-lg:order-last">
-            <ul class="flex items-center max-lg:flex-col max-lg:space-y-3">
+        <nav class="max-lg:w-full bg-white inset-0 max-lg:order-last ">
+            <ul class="flex items-center max-lg:flex-col max-lg:space-y-2">
                 @foreach($menuItems as $menuItem)
-                    <li>
-                        <a class="max-lg:w-full inline-flex text-lg px-4 py-2 border" href="{{ $menuItem['url'] }}">{{ $menuItem['title'] }}</a>
+                    <li class="max-lg:w-full">
+                        <a class="max-lg:w-full inline-flex text-lg px-4 py-2 max-lg:border rounded-lg" href="{{ $menuItem['url'] }}">{{ $menuItem['title'] }}</a>
                     </li>
                 @endforeach
             </ul>

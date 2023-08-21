@@ -17,6 +17,7 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Filament\Navigation\MenuItem;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -50,6 +51,13 @@ class AdminPanelProvider extends PanelProvider
                 SubstituteBindings::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
+            ])
+            ->userMenuItems([
+                'profile' => MenuItem::make()->label('Профиль'),
+                MenuItem::make()
+                    ->label('Сайт')
+                    ->url('/')
+                    ->icon('heroicon-o-home'),
             ])
             ->authMiddleware([
                 Authenticate::class,

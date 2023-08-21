@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use App\Models\FormRecord;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ContactForm;
 
 class LeadController extends Controller
 {
@@ -27,6 +29,8 @@ class LeadController extends Controller
         }
         $formRecord->unread = true;
         $formRecord->save();
+        Mail::to('info@albus-it.ru')->send(new ContactForm($formRecord));
+
 
         return true;
     }

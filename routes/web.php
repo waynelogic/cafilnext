@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Helpers\Page;
 use App\Http\Controllers\LeadController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,6 +24,11 @@ Route::get('/', function () {
     return view('home',  ['page' => $page]);
 })->name('home');
 
+Route::get('/mail', function () {
+    $lead = \App\Models\FormRecord::find(4);
+
+    return view('mail/newlead',  ['lead' => $lead]);
+})->name('home');
 
 
 Route::prefix('api')->group(function () {

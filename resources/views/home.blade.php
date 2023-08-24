@@ -233,6 +233,13 @@
                             <input type="hidden" name="group" value="Контакты">
                             <input type="text" name="Имя" placeholder="Имя" required class="w-full form-control">
                             <input type="tel" name="Телефон" placeholder="Телефон" required class="w-full form-control">
+                            <input type="email" name="Почта" placeholder="Почта" class="w-full form-control">
+                            <select name="Тема" class="w-full form-control">
+                                <option selected>Общие вопросы</option>
+                                <option>Оплата долга</option>
+                                <option>Технический вопрос</option>
+                                <option>Другое</option>
+                            </select>
                             <textarea name="Сообщение" placeholder="Сообщение" class="w-full form-control" rows="3"></textarea>
                             <button type="submit" data-attach-loading="" class="mt-2 btn btn-primary">Отправить</button>
                         </form>

@@ -1,0 +1,28 @@
+{
+    "name": "waynelogic/image-resizer",
+    "description": "Laravel Image Resizer",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Waynelogic\\ImageResizer\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Waynelogic"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Waynelogic\\ImageResizer\\ImageResizerServiceProvider"
+            ]
+        }
+    }
+}

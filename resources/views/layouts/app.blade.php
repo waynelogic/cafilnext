@@ -27,21 +27,18 @@
     <meta name="msapplication-config" content="favicon/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="fonts/futupt/stylesheet.css" rel="stylesheet">
     <!-- Styles -->
     @vite('resources/css/app.css')
 
-    @include('common.yandex')
+{{--    @include('common.yandex')--}}
 </head>
 
 <body>
-    @if(Auth::check())
-        @include('common.admin-bar')
-    @endif
     @include('common.header')
-    @yield('content')
+    <main>
+        @yield('content')
+    </main>
     @include('common.footer')
     @vite('resources/js/app.js')
 </body>

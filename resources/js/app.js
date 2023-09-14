@@ -1,4 +1,4 @@
-import './bootstrap';
+// import './bootstrap';
 import AOS from 'aos';
 AOS.init();
 
@@ -6,6 +6,7 @@ import ajax from "./components/request/request.js";
 window.Request = Request;
 
 document.querySelectorAll('[data-request]').forEach(element => {
+    console.log(element)
     ajax.form(element);
 });
 
@@ -14,7 +15,7 @@ window.accordion = function(object){
 }
 
 window.onload = () => {
-    import('./components//header.js').then(({ default : init }) => init() );
+    import('./components/header.js').then(({ default : init }) => init() );
     const arLazyItems = document.querySelectorAll('[data-lazy]');
     arLazyItems.forEach(element => {
         var fnName = element.dataset.lazy;

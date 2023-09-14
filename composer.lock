@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e4f97420aa035b745ac374d5a84b444b",
+    "content-hash": "d0525a0a392de8bb7fda580471966f77",
     "packages": [
         {
             "name": "blade-ui-kit/blade-heroicons",
@@ -8046,6 +8046,114 @@
             "time": "2022-03-08T17:03:00+00:00"
         },
         {
+            "name": "waynelogic/corporate",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "packages/waynelogic/corporate",
+                "reference": "410cfc9efecd53e76f4d102ec60a926964dcaaf7"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Waynelogic\\Corporate\\CorporateServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Waynelogic\\Corporate\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Waynelogic"
+                }
+            ],
+            "description": "Corporate Plugin for Filament Laravel",
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
+            "name": "waynelogic/image-resizer",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "packages/waynelogic/image-resizer",
+                "reference": "970bb4da7fee0af673881fd86dc2b01035f715a1"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Waynelogic\\ImageResizer\\ImageResizerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Waynelogic\\ImageResizer\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Waynelogic"
+                }
+            ],
+            "description": "Laravel Image Resizer",
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
+            "name": "waynelogic/magic-forms",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "packages/waynelogic/magic-forms",
+                "reference": "e15cb89b680a079cee96c61211bacf6332b73beb"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Waynelogic\\MagicForms\\MagicFormsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Waynelogic\\MagicForms\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Waynelogic"
+                }
+            ],
+            "description": "Magic Forms Plugin for Filament Laravel",
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
             "name": "webmozart/assert",
             "version": "1.11.0",
             "source": {
@@ -10540,7 +10648,10 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "livewire/livewire": 10
+        "livewire/livewire": 10,
+        "waynelogic/corporate": 20,
+        "waynelogic/image-resizer": 20,
+        "waynelogic/magic-forms": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

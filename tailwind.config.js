@@ -8,12 +8,15 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                'sans': ['Jost', 'sans-serif'],
-                'serif': ['Playfair Display', 'serif'],
+                'sans': ['Futura PT', 'sans-serif'],
+                'serif': ['Montserrat', 'serif'],
             },
             colors: {
                 'silver' : {
                     'DEFAULT' : '#999'
+                },
+                'main' : {
+                    'DEFAULT' : '#34353b'
                 },
                 'secondary' : {
                     'DEFAULT' : '#bf4800'
@@ -30,7 +33,8 @@ module.exports = {
             boxShadow: {
                 'in': '0 0 0 1px #ebecec',
                 'out' : '0px 4px 34px -19px rgb(0 0 0 / 38%)',
-                'round' : '0px 5px 25px -2px rgb(0 0 0 / 5%)'
+                'round' : '0px 5px 25px -2px rgb(0 0 0 / 5%)',
+                'card' : '0 2px 10px rgba(0,18,52,.15)'
             },
         },
         container: {

@@ -18,6 +18,7 @@ use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Filament\Navigation\MenuItem;
+use Waynelogic\MagicForms\MagicFormsPlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -59,6 +60,7 @@ class AdminPanelProvider extends PanelProvider
                     ->url('/')
                     ->icon('heroicon-o-home'),
             ])
+            ->plugin(new MagicFormsPlugin())
             ->authMiddleware([
                 Authenticate::class,
             ]);

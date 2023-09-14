@@ -1,0 +1,25 @@
+{
+    "name": "waynelogic/magic-forms",
+    "description": "Magic Forms Plugin for Filament Laravel",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Waynelogic\\MagicForms\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Waynelogic"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Waynelogic\\MagicForms\\MagicFormsServiceProvider"
+            ]
+        }
+    }
+}

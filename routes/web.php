@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Helpers\Page;
 use App\Http\Controllers\LeadController;
 use Spatie\Sitemap\SitemapGenerator;
-
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,14 +16,7 @@ use Spatie\Sitemap\SitemapGenerator;
 |
 */
 
-Route::get('/', function () {
-    $page = new Page();
-    $page->description('Юридическая компания «ФиЛнекст» специализируется на работе с долговыми обязательствами по всей России.');
-    $page->keywords('ФиЛнекст, ФиЛнекст Ростов-на-Дону, ФиЛнекст Россиия, юридическая компания');
-    $page->cover('images/home/hero2.webp');
-
-    return view('home',  ['page' => $page]);
-})->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('generate-sitemap', function () {
     SitemapGenerator::create('https://cafilnext.ru/')

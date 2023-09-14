@@ -1,34 +1,37 @@
-<footer class="p-3 bg-neutral-800 text-white">
-    <div class="container py-12">
-        <div class="grid lg:grid-cols-2 gap-20">
-            <div>
-                <img src="images/home/fl_logo.svg" alt="ФиЛнекст" width="100%" class="mb-0">
+<footer class="relative bg-[#181f29] text-white pt-8 pb-6">
+    <div class="container">
+        <div class="grid lg:grid-cols-7">
+            <div class="lg:col-span-3">
+                <div class="mt-6 lg:mb-0 mb-6">
+                    <img src="images/home/fl_logo.svg" alt="ФиЛнекст" width="150px" height="30px" class="mb-0">
+                </div>
                 <p class="mt-4">Юридическая компания «ФиЛнекст» специализируется на работе с долговыми обязательствами по всей России.</p>
             </div>
-            <div>
-                <div class="text-3xl font-serif mb-2">Есть вопросы?</div>
+            <div class="lg:col-span-1">
+
+            </div>
+            <div class="lg:col-span-3">
+                <div class="text-3xl font-semibold mb-2">Есть вопросы?</div>
                 <ul class="space-y-3">
-                    <li>
-                        <span href="" class="flex items-center">
-                            <x-heroicon-s-map-pin class="w-6 h-6"/>
-                            <span class="ml-2">344038, Ростовская область, г. Ростов-На-Дону, ул Нансена, здание 103М, помещение 5</span>
-                        </span>
-                    </li>
-                    <li>
-                        <a href="tel://+79918510202" class="flex items-center">
-                            <x-heroicon-s-phone class="w-6 h-6"/>
-                            <span class="ml-2">+7 991 851 02 02</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="mailto:ca@filnext.ru" class="flex items-center">
-                            <x-heroicon-s-envelope class="w-6 h-6"/>
-                            <span class="ml-2">ca@filnext.ru</span>
-                        </a>
-                    </li>
+                    @foreach($contacts as $obItem)
+                        <li>
+                            @if(isset($obItem->url))
+                                <a href="{{ $obItem->url }}" class="flex items-center">
+                                    @svg($obItem->icon, 'w-6 h-6 shrink-0')
+                                    <span class="ml-2">{{ $obItem->text }}</span>
+                                </a>
+                            @else
+                                <span class="flex items-center">
+                                    @svg($obItem->icon, 'w-6 h-6 shrink-0')
+                                    <span class="ml-2">{{ $obItem->text }}</span>
+                                </span>
+                            @endif
+                        </li>
+                    @endforeach
                 </ul>
             </div>
         </div>
+        <hr class="my-6 border-blueGray-300">
         <p class="text-center mt-6">Copyright © 2017 - {{ \Carbon\Carbon::now()->format('Y')  }}. Все права защищены компанией Альбус</p>
     </div>
 </footer>

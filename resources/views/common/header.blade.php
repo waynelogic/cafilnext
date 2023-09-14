@@ -6,6 +6,7 @@
                 @foreach($header_navbar as $menuItem)
                     <li class="max-lg:w-full">
                         <a class="max-lg:w-full inline-flex text-lg px-3 py-2 max-lg:border rounded-lg"
+                           data-action="toggle-menu"
                            href="{{ $menuItem->url }}">{{ $menuItem->title }}</a>
                     </li>
                 @endforeach

@@ -1,41 +1,28 @@
 class Header {
-    constructor(element) {
-        this.header = element;
-        this.sections = [];
+    constructor($element) {
+        this.$header = $element;
+        this.navbar = this.$header.querySelector('.site-navbar');
+        this.navItems = [];
         this.init();
     }
     init() {
-        document.querySelectorAll('.content-section').forEach((section) => {
-            let link = document.querySelector('a[href="#' + section.id + '"]');
-            this.sections[section.id] = {
-                menuItem: link,
-                section
-            }
+        this.$header.querySelectorAll('.nav-item').forEach(obItem => {
+            let name = obItem.querySelector('a').getAttribute('href');
+            this.navItems[name] = obItem;
         })
-        window.addEventListener('scroll', () => this.setActiveMenuItem());
-        window.addEventListener('load', () => this.setActiveMenuItem());
-
-        this.navbar = this.header.querySelector('.site-navbar');
-        this.header.addEventListener('click', ({target}) => {
-            if (target.dataset.action === 'toggle-menu') {
-                this.navbar.classList.toggle('open');
-            }
-        });
-    }
-
-    setActiveMenuItem() {
-        for (const [name, item] of Object.entries(this.sections)) {
-            let state = this.isElementInViewport(item.section);
-            item.menuItem.classList.toggle('text-primary', state)
-        }
-    }
-
-    isElementInViewport(el) {
-        let rect = el.getBoundingClientRect();
-        return (
-            rect.top >= 0 &&
-            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+        const sectionObserver = new IntersectionObserver(
+            (entries, observer) => entries.forEach(entry => {
+                let id = entry.target.getAttribute('id');
+                if (id) {
+                    this.navItems["#" + id].classList.toggle('active', entry.isIntersecting);
+                }
+            }), { threshold: 0.5 }
         );
+        document.querySelectorAll('section').forEach(section => sectionObserver.observe(section));
+
+        this.$header.addEventListener('click', ({target}) => {
+            target.dataset.action === 'toggle-menu' && this.navbar.classList.toggle('open');
+        });
     }
 }
 

@@ -6,7 +6,6 @@ import ajax from "./components/request/request.js";
 window.Request = Request;
 
 document.querySelectorAll('[data-request]').forEach(element => {
-    console.log(element)
     ajax.form(element);
 });
 
@@ -15,26 +14,26 @@ window.accordion = function(object){
 }
 
 window.onload = () => {
-    import('./components/header.js').then(({ default : init }) => init() );
-    const arLazyItems = document.querySelectorAll('[data-lazy]');
-    arLazyItems.forEach(element => {
-        var fnName = element.dataset.lazy;
-        if (window[fnName] == undefined || typeof window[fnName] != 'function') return console.log(`Lazy функция ${fnName} не найдена`);
-        const options = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.5
-        }
-        const server = new IntersectionObserver(handlerObserver, options);
+    import('./components/header').then(({ default : init }) => init() );
 
-        function handlerObserver(entries, observer) {
-            entries.forEach(entry =>{
-                if (!entry.isIntersecting) return;
-                const object = entry.target;
-                window[object.dataset.lazy](object);
-                observer.unobserve(object);
-            })
-        }
-        server.observe(element);
-    })
+    const lazyLoader = new IntersectionObserver(
+        (entries, observer) => entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                window[entry.target.dataset.lazy](entry.target);
+                observer.unobserve(entry.target);
+            }
+        }),
+        { rootMargin: '50px' }
+    );
+    document.querySelectorAll('[data-lazy]').forEach(element => {
+        let fnName = element.dataset.lazy;
+        if (window[fnName] === undefined || typeof window[fnName] !== 'function') return console.log(`Lazy функция ${fnName} не найдена`);
+        lazyLoader.observe(element);
+    });
+
+    document.querySelectorAll('.vibrate').forEach(button => {
+        button.addEventListener('click',() =>  {
+            navigator.vibrate(20);
+        });
+    });
 }

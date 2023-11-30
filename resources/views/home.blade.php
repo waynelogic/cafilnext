@@ -10,7 +10,7 @@
                 <p class="text-3xl mt-2">
                     Юридическая компания «ФиЛнекст» специализируется на работе с долговыми обязательствами по всей России.
                 </p>
-                <a class="btn btn-outline uppercase mt-5">
+                <a href="#about" class="btn btn-outline uppercase mt-5">
                     О нас
                 </a>
             </div>

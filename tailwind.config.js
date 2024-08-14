@@ -1,3 +1,7 @@
+import defaultTheme from 'tailwindcss/defaultTheme';
+import forms from '@tailwindcss/forms';
+import typography from '@tailwindcss/typography';
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     content: [
@@ -8,20 +12,20 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                'sans': ['Futura PT', 'sans-serif'],
-                'serif': ['Montserrat', 'serif'],
+                'sans': ['Futura PT', defaultTheme.fontFamily.sans],
+                'serif': ['Montserrat', defaultTheme.fontFamily.serif],
             },
             colors: {
-                'silver' : {
+                silver : {
                     'DEFAULT' : '#999'
                 },
-                'main' : {
+                main : {
                     'DEFAULT' : '#34353b'
                 },
-                'secondary' : {
+                secondary : {
                     'DEFAULT' : '#bf4800'
                 },
-                'primary': {
+                primary: {
                     100: '#ece2d6',
                     200: '#f1eae0',
                     300: '#e5d8c3',
@@ -38,6 +42,7 @@ module.exports = {
             },
         },
         container: {
+            center: true,
             padding: {
                 DEFAULT: '1rem',
                 sm: '2rem',
@@ -48,7 +53,7 @@ module.exports = {
         },
     },
     plugins: [
-        require('@tailwindcss/typography'),
-        require('@tailwindcss/forms'),
+        forms,
+        typography
     ],
 }

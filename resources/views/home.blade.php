@@ -40,13 +40,23 @@
                 <div>
                     <div class="shadow-out relative">
                         <h2 class="absolute w-full py-3 bg-primary text-white text-center text-3xl font-semibold bottom-full rounded-t-xl">Обратная связь</h2>
-                        <form class="grid grid-cols-1 gap-6 p-8 border-2 rounded-b-xl" method="POST" data-request="{{ route('magic-forms') }}">
-                            @csrf
-                            <input type="hidden" name="group" value="Быстрая связь">
-                            <input type="text" name="Имя" placeholder="Имя" required class="w-full form-control">
-                            <input type="tel" name="Телефон" placeholder="Телефон" required class="w-full form-control">
-                            <textarea name="Сообщение" placeholder="Сообщение" class="w-full form-control" rows="3"></textarea>
-                            <button type="submit" data-attach-loading="" class="mt-2 btn btn-primary">Отправить</button>
+                        <form class="flex flex-col gap-5 p-8 rounded-b-2xl border-2 border-t" x-data="ajaxForm('main')" data-success-message="Спасибо за заявку!" data-clear action="{{ route('magic-forms')}}">
+                            <label class="flex flex-col">
+                                <input class="form-control" type="text" x-model="data.name" name="name" placeholder="Имя">
+                                <span class="mt-2" x-show="errors.name" x-text="errors.name"></span>
+                            </label>
+                            <label class="flex flex-col">
+                                <input class="form-control" type="tel" x-model="data.phone" name="phone" placeholder="Телефон">
+                                <span class="mt-2" x-show="errors.phone" x-text="errors.phone"></span>
+                            </label>
+                            <label>
+                                <textarea class="form-control" x-model="data.message" name="Сообщение" placeholder="Сообщение" rows="3"></textarea>
+                            </label>
+                            <label class="select-none">
+                                <input type="checkbox" class="form-control inline" required checked>
+                                <span class="align-middle ml-2"> Я согласен с <a target="_blank" href="{{ asset('documents/Политика в отношении обработки персональных данных.pdf') }}" class="text-primary">политикой конфиденциальности</a></span>
+                            </label>
+                            <button class="btn btn-primary" type="submit">Отправить</button>
                         </form>
                     </div>
                 </div>
@@ -72,11 +82,8 @@
     <section class="abouts-section content-section" id="about">
         <div class="container grid lg:grid-cols-2 gap-10 lg:gap-20 py-12">
             <div>
-                <div class="h-1 bg-gray-200 rounded overflow-hidden mb-4">
-                    <div class="w-24 h-full bg-primary"></div>
-                </div>
+                 <x-section-header title="Информация о нашей <span class='text-primary'>компании</span>"/>
                 <div class="prose-lg prose-ul:p-0 prose-p:mb-3 prose-p:mt-0">
-                    <h2 class="text-4xl font-semibold mb-4">Информация о нашей <span class="text-primary">компании</span></h2>
                     <p>ООО ПКО «ФиЛнекст» — это организация, основным видом деятельности которой является деятельность по возврату просроченной задолженности.</p>
                     <p>Такой тип деятельности регулируется Федеральным законом от 03.07.2016 года № 230 ФЗ и Гражданским кодексом.<br> В соответствии с законом, мы вправе:</p>
                     <ul class="checklist mt-2 space-y-3">
@@ -123,15 +130,7 @@
 
     <section class="services-section bg-gray-100 mt-12 content-section" id="services">
         <div class="container py-24">
-            <div class="flex flex-col">
-                <div class="h-1 bg-gray-200 rounded overflow-hidden">
-                    <div class="w-24 h-full bg-primary"></div>
-                </div>
-                <div class="flex-wrap sm:flex-row flex-col py-6 ">
-                    <p class="font-semibold">Направления нашей компании</p>
-                    <h2 class="text-4xl font-semibold mb-4">Основные <span class="text-primary">направления</span> деятельности</h2>
-                </div>
-            </div>
+            <x-section-header title="Основные <span class='text-primary'>направления</span> деятельности" subtitle="Направления нашей компании"/>
             <div class="grid lg:grid-cols-3 gap-6">
                 @foreach($arServices as $obService)
                     <div data-aos-delay="{{ $loop->iteration * 100 }}" data-aos="fade-down" class="group relative bg-white rounded-3xl overflow-hidden shadow-card hover:text-white isolate">
@@ -173,15 +172,7 @@
         <div class="absolute bg-black/60 inset-0 z-[-1]"></div>
 
         <div class="container py-20 text-white">
-            <header>
-                <div class="h-1 bg-gray-200 rounded overflow-hidden">
-                    <div class="w-24 h-full bg-primary"></div>
-                </div>
-                <div class="flex-wrap flex-col py-6 ">
-                    <p class="text-lg">Интересные условия для должников</p>
-                    <h2 class="text-4xl font-semibold mb-4">Оплата <span class="text-primary">задолженности</span></h2>
-                </div>
-            </header>
+            <x-section-header title="Оплата <span class='text-primary'>задолженности</span>" subtitle="Интересные условия для должников"/>
 
             <div class="prose-lg">
                 <p class="mb-4">ООО ПКО «ФиЛнекст» всегда лояльно к должникам, которые осознают свою обязанность по погашению задолженности. Поэтому ООО ПКО «ФиЛнекст» предлагает таким гражданам следующие интересные для них условия:</p>
@@ -222,30 +213,24 @@
 
     <section class="bg-gray-50 content-section" id="faq">
         <div class="container py-12">
-            <header>
-                <div class="h-1 bg-gray-200 rounded overflow-hidden">
-                    <div class="w-24 h-full bg-primary"></div>
-                </div>
-                <div class="flex-wrap flex-col py-6 ">
-                    <h2 class="text-4xl font-semibold mb-4">Часто задаваемые <span class="text-primary">вопросы</span></h2>
-                </div>
-            </header>
-
-            <div class="accordion flex flex-col space-y-5 mb-10">
+            <x-section-header title="Часто задаваемые <span class='text-primary'>вопросы</span>"/>
+            <div class="flex flex-col gap-4" x-data="{ current: 0 }">
                 @foreach ($arFaq as $obItem)
-                    <details class="accordion-item border border-primary rounded-xl overflow-hidden bg-white" {{ $loop->iteration == 1 ? 'open' : '' }}>
-                        <summary>
+                    <div class="group border border-primary rounded-xl overflow-hidden bg-white" :class="current == {{ $loop->index }} ? 'active' : ''">
+                        <button @click="current = {{ $loop->index }}" class="w-full bg-white p-4 flex justify-between text-lg group-[.active]:bg-primary/30 group-[.active]:text-primary-900 cursor-pointer">
                             <span>{{ $obItem->question }}</span>
-                            <div class="duration-300 arrow">
+                            <span class="duration-300 group-[.active]:rotate-180">
                                 <x-heroicon-o-chevron-down class="w-6 h-6"/>
-                            </div>
-                        </summary>
-                        <div>
-                            <div class="p-4 prose-lg border-primary">
-                                {!! $obItem->ansver !!}
+                            </span>
+                        </button>
+                        <div class="duration-300 grid grid-rows-[0fr] group-[.active]:grid-rows-[1fr]">
+                            <div class="overflow-hidden">
+                                <div class="p-4 prose-lg border-primary">
+                                    {!! $obItem->ansver !!}
+                                </div>
                             </div>
                         </div>
-                    </details>
+                    </div>
                 @endforeach
             </div>
         </div>
@@ -266,21 +251,36 @@
             </header>
             <div class="grid lg:grid-cols-2 gap-10 lg:gap-20">
                 <div>
-                    <form class="flex flex-col h-full bg-[#f6f4ed] rounded-lg overflow-hidden p-4 lg:p-8" method="POST" data-request="{{ route('magic-forms') }}">
-                        @csrf
+                    <form class="flex flex-col h-full bg-[#f6f4ed] rounded-lg overflow-hidden p-4 lg:p-8" action="{{ route('magic-forms')}}" x-data="ajaxForm('main')" data-success-message="Спасибо за заявку!" data-clear>
                         <h3 class="text-4xl font-semibold mb-4">Обратная связь</h3>
                         <div class="flex flex-col space-y-4 mb-3">
-                            <input type="hidden" name="group" value="Контакты">
-                            <input type="text" name="Имя" placeholder="Имя" required class="w-full form-control">
-                            <input type="tel" name="Телефон" placeholder="Телефон" required class="w-full form-control">
-                            <input type="email" name="Почта" placeholder="Почта" class="w-full form-control">
-                            <select name="Тема" class="w-full form-control">
-                                <option selected>Общие вопросы</option>
-                                <option>Оплата долга</option>
-                                <option>Технический вопрос</option>
-                                <option>Другое</option>
-                            </select>
-                            <textarea name="Сообщение" placeholder="Сообщение" class="w-full form-control" rows="3"></textarea>
+                            <input type="hidden" x-model.fill="data.group" name="group" value="Контакты">
+                            <label class="flex flex-col">
+                                <input class="form-control" type="text" x-model="data.name" name="name" placeholder="Имя">
+                                <span class="mt-2" x-show="errors.name" x-text="errors.name"></span>
+                            </label>
+                            <label class="flex flex-col">
+                                <input class="form-control" type="tel" x-model="data.phone" name="phone" placeholder="Телефон">
+                                <span class="mt-2" x-show="errors.phone" x-text="errors.phone"></span>
+                            </label>
+                            <label class="flex flex-col">
+                                <input class="form-control" type="email" x-model="data.email" name="email" placeholder="Почта">
+                            </label>
+                            <label>
+                                <select x-model.fill="data.theme" name="theme" class="w-full form-control">
+                                    <option value="Общие вопросы" selected>Общие вопросы</option>
+                                    <option value="Оплата долга">Оплата долга</option>
+                                    <option value="Технический вопрос">Технический вопрос</option>
+                                    <option value="Другое">Другое</option>
+                                </select>
+                            </label>
+                            <label>
+                                <textarea class="form-control" x-model="data.message" name="Сообщение" placeholder="Сообщение" rows="3"></textarea>
+                            </label>
+                            <label class="select-none">
+                                <input type="checkbox" class="form-control inline" required checked>
+                                <span class="align-middle ml-2"> Я согласен с <a target="_blank" href="{{ asset('documents/Политика в отношении обработки персональных данных.pdf') }}" class="text-primary">политикой конфиденциальности</a></span>
+                            </label>
                         </div>
                         <button type="submit" class="mt-auto btn btn-primary">Отправить</button>
                     </form>
@@ -295,7 +295,7 @@
                                 <tr><th scope="row">ИНН/КПП</th> <td>6165226716 / 616501001</td> </tr>
                                 <tr><th scope="row">ОГРН</th> <td>1206100031928</td> </tr>
                                 <tr><th scope="row">Юридический адрес</th> <td>344038, Ростовская область, г. Ростов-На-Дону, ул Нансена, здание 103М, помещение 5</td> </tr>
-                                <tr><th scope="row">Банковские реквизиты</th> <td>АО "ТИНЬКОФФ БАНК"</td> </tr>
+                                <tr><th scope="row">Банковские реквизиты</th> <td>АО "Т-БАНК"</td> </tr>
                                 <tr><th scope="row">Р/сч:</th> <td>40702810810000707120</td> </tr>
                                 <tr><th scope="row">К/сч</th> <td>30101810145250000974</td> </tr>
                                 </tbody>

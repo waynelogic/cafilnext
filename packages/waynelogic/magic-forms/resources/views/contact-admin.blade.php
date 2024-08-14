@@ -33,7 +33,7 @@
         <tbody>
             @foreach($formRecord->form_data as $key => $value)
                 <tr>
-                    <td>{{ $value }}</td>
+                    <td>{{ $key }}</td>
                     <td>{{ $value }}</td>
                 </tr>
             @endforeach

@@ -2,6 +2,16 @@
 import AOS from 'aos';
 AOS.init();
 
+import Alpine from 'alpinejs'
+import ajaxForm from "./alpine/ajaxForm.js";
+import flash from "./alpine/flash.js";
+
+window.Alpine = Alpine
+Alpine.data('flash', flash);
+Alpine.data('ajaxForm', ajaxForm);
+
+Alpine.start()
+
 import ajax from "./components/request/request.js";
 window.Request = Request;
 

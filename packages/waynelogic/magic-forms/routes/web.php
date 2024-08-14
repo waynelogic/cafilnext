@@ -15,6 +15,5 @@ use Waynelogic\MagicForms\Controllers\MagicFormsController;
 */
 
 Route::group(['prefix' => 'api/'], function () {
-    Route::post('magic-forms', [MagicFormsController::class, 'index'])->name('magic-forms');
-    Route::get('magic-forms/test', [MagicFormsController::class, 'test']);
+    Route::any('magic-forms', [MagicFormsController::class, 'index'])->name('magic-forms');
 });

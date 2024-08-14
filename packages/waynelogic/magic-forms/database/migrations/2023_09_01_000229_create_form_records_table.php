@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('ip')->nullable();
             $table->boolean('unread')->default(1);
             $table->string('country')->nullable();
+            $table->string('city')->nullable();
             $table->timestamps();
         });
     }

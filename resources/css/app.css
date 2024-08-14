@@ -1,32 +1,41 @@
 @import "aos/dist/aos.css";
+@import '../fonts/futupt/stylesheet.css';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-    * {
-
-    }
     html {
         @apply text-main;
     }
     button * {
         @apply pointer-events-none;
     }
-    .container {
-        @apply mx-auto;
-    }
 }
 
 
 
 @layer components {
-    .btn {
-        @apply inline-flex items-center justify-center px-6 py-3 transition-all;
+
+    .form-control {
+        @apply border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-blue-700 focus:ring-opacity-50 duration-150 text-indigo-950;
+        &:not([type="radio"]):not([type='checkbox']) {
+            @apply w-full rounded-lg;
+        }
+        &[type='checkbox'], &[type='radio']{
+            @apply text-primary focus:ring-offset-0;
+        }
+        &[type='checkbox'] {
+            @apply rounded;
+        }
     }
-    .btn-primary {
-        @apply bg-primary text-white font-semibold rounded;
+
+    .btn {
+        @apply inline-flex items-center justify-center px-6 py-3 rounded-lg duration-300;
+        &-primary {
+            @apply bg-primary text-white font-semibold;
+        }
     }
     .btn-outline {
         @apply border-2 border-primary text-xl text-white font-semibold rounded-md hover:bg-primary;

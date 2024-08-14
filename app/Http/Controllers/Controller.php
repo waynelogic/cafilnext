@@ -121,7 +121,7 @@ class Controller extends BaseController
             ],
             (object) [
                 'title' => 'Банк',
-                'text' => '	АО "ТИНЬКОФФ БАНК"',
+                'text' => '	АО "Т-БАНК"',
             ],
             (object) [
                 'title' => 'Р/сч',

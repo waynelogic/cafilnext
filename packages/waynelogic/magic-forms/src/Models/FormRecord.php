@@ -19,7 +19,7 @@ class FormRecord extends Model
         parent::boot();
 
         static::creating(function($model) {
-            $model->setGeoData();
+//            $model->setGeoData();
         });
 
         static::created(function($model) {

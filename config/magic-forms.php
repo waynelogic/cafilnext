@@ -3,7 +3,7 @@
 return [
     'admins' => [
         [
-            'email' => 'info@albus-it.ru',
+            'email' => 'ca@filnext.ru',
         ]
     ],
     'forms' => [
